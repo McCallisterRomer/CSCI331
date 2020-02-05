@@ -41,6 +41,8 @@ class Array {
 /** Insertion operator.
  * @param istream something about the istream
  * @param array something about array
+ * @pre
+ * @post
  */
 friend istream& operator>>(istream &, Array &);
 
@@ -50,6 +52,13 @@ friend istream& operator>>(istream &, Array &);
 // Preconditions:   a.ptr must point to an array with size at least a.size
 // Postconditions:  The first a.size elements of a.ptr are sent to the 
 // output istream 10 per line with a trailing endl
+
+/** Extraction operator.
+ * @param istream something about the istream
+ * @param array something about array
+ * @pre
+ * @post
+ */
 friend ostream& operator<<(ostream &, const Array &);
 
 public:
@@ -61,33 +70,33 @@ public:
 //         arrayCount is incremented.
 //         Negative input values result in the default size of 10
 
-/** Default constructor.
- * @param arraySize The size of the array.
+/** Default constructor
+ * @param arraySize The number of elements the array will hold.
+ * @pre None
+ * @post ptr points to an array of size arraySize and all elements
+ * of the array have been initialized to zero.  arrayCount is 
+ * incremented.  A negative arraySize results in an array of size
+ * 10.
  */
 Array(int = 10); 
 
-//---------------------------------------------------------------------------
-// Copy constructor 
-// Preconditions:   init.ptr points to an array of size at least init.size
-// Postconditions:  init is copied into *this, arrayCount is incremented
+/** Copy constructor
+ * @param init
+ * @pre init.ptr points to an array of size at least init.size
+ * @post init is copied into *this, arrayCount is incremented
+ */
 Array(const Array &); 
 
-//---------------------------------------------------------------------------
-// Destructor 
-// Preconditions:   ptr points to memory on the heap
-// Postconditions:  Array for ptr is deallocated, arrayCount is decremented
+/** Destructor
+ * @pre ptr points to memory on the heap
+ * @post Array for ptr is deallocated, arrayCount is decremented
+ */
 ~Array(); 
 
-//---------------------------------------------------------------------------
-// getSize 
-// Get the size of the array
-// Preconditions:   None
-// Postconditions:  Returns the size of the array
-
-/** getSize member function.
- * @precond this is a precondition.
- * @postcond this is a postcondition.
- * @return it returns an int.
+/** getSize
+ * @pre None
+ * @post Returns the size of the array
+ * @return The size of the array
  */
 int getSize() const; 
 
@@ -96,43 +105,44 @@ int getSize() const;
 // Preconditions:   right.ptr points to an array of size at least right.size
 // Postconditions:  *this is assigned the same array as right
 
-/** Copy assignment operator.
- * @param right A const reference to the array to be copied.
- * @pre right points to an array of size at least right.size
- * @post this is assigned the same array as right
+/** Copy assignment
+ * @param right
+ * @pre right.ptr points to an array of size at least right.size
+ * @post *this is assigned the same array as right
+ * @return ???
  */
 const Array& operator=(const Array &); 
 
-//---------------------------------------------------------------------------
-// operator==
-// Determine if two arrays are equal
-// Preconditions:   ptr and right.ptr point to arrays with size at least
-//          size and right.size, respectively
-// Postconditions:  true is returned if the arrays have the same size and 
-//          elements false is return otherwise
+/** Determines if two arrays are equal.
+ * @param right The right hand side array to be compared.
+ * @pre ptr and right.ptr point to arrays with size at least size and right.size.
+ * @post 
+ * @return True if the arrays have the same size and elements, false otherwise.
+ */
 bool operator==(const Array &) const; 
 
-//---------------------------------------------------------------------------
-// operator!=
-// Determine if two arrays are not equal
-// Preconditions:   ptr and right.ptr point to arrays with size at least
-//          size and right.size, respectively
-// Postconditions:  false is returned if the arrays have the same size and 
-//          elements true is return otherwise
+/** Not equal operator - description
+ * @param right
+ * @pre ptr and right.ptr point to arrays with size at least size and size.right
+ * @post false is returned if the arrays have the same size and elements true is 
+ * returned otherwise
+ * @return
+ */
 bool operator!=(const Array &) const;
 
-//---------------------------------------------------------------------------
-// operator[]
-// Overloaded subscript operator, terminates if subscript out of range error
-// Preconditions:   0 <= subscript < size
-// Postconditions:  Returns the array value at position "subscript"
+/** Array access operator - description.
+ * @param subscript
+ * @pre 0 <= subscript < size
+ * @post returns the array value at position "subscript"
+ * @return
+ */
 int& operator[](int); 
 
-//---------------------------------------------------------------------------
-// getArrayCount 
-// Return the number of Array objects instantiated
-// Preconditions:   None
-// Postconditions:  Returns the number of arrays
+/** description - returns arrayCount
+ * @pre None
+ * @post returns the number of arrays
+ * @return
+ */
 static int getArrayCount(); 
 
 private:

@@ -1,0 +1,64 @@
+\hypertarget{array_8cpp}{}\doxysection{array.\+cpp File Reference}
+\label{array_8cpp}\index{array.cpp@{array.cpp}}
+{\ttfamily \#include \char`\"{}array.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+istream \& \mbox{\hyperlink{array_8cpp_a14edf7ce8faebaaec1b5e81582fed73b}{operator$>$$>$}} (istream \&input, \mbox{\hyperlink{class_array}{Array}} \&a)
+\item 
+ostream \& \mbox{\hyperlink{array_8cpp_a37415f259690744fe14f0589d4e74fb7}{operator$<$$<$}} (ostream \&output, const \mbox{\hyperlink{class_array}{Array}} \&a)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+cal 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{array_8cpp_a37415f259690744fe14f0589d4e74fb7}\label{array_8cpp_a37415f259690744fe14f0589d4e74fb7}} 
+\index{array.cpp@{array.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!array.cpp@{array.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{output,  }\item[{const \mbox{\hyperlink{class_array}{Array}} \&}]{a }\end{DoxyParamCaption})}
+
+Extraction operator -\/ description 
+\begin{DoxyParams}{Parameters}
+{\em output} & \\
+\hline
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+a.\+ptr must point to an array with size at least a.\+size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The first a.\+size elements of a.\+ptr are sent to the output istream 10 per line with a trailing endl 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{array_8cpp_a14edf7ce8faebaaec1b5e81582fed73b}\label{array_8cpp_a14edf7ce8faebaaec1b5e81582fed73b}} 
+\index{array.cpp@{array.cpp}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!array.cpp@{array.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{input,  }\item[{\mbox{\hyperlink{class_array}{Array}} \&}]{a }\end{DoxyParamCaption})}
+
+Insertion operator -\/ description 
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+a.\+ptr must point to an array with size at least a.\+size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The first a.\+size elements of a.\+ptr are filled with integers read from the input stream. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}

@@ -1,0 +1,274 @@
+\hypertarget{class_array}{}\doxysection{Array Class Reference}
+\label{class_array}\index{Array@{Array}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_array_ad8df7b9c3fc7f4c8acb83106b2d4c2f5}{Array}} (int=10)
+\item 
+\mbox{\hyperlink{class_array_a92547f11ba0b2f9d83dd478a38dd06e2}{Array}} (const \mbox{\hyperlink{class_array}{Array}} \&)
+\item 
+\mbox{\hyperlink{class_array_abcabe567f41f7798d2f97babcc443c6f}{$\sim$\+Array}} ()
+\item 
+int \mbox{\hyperlink{class_array_af29bf627de157570d00c700773884e20}{get\+Size}} () const
+\item 
+const \mbox{\hyperlink{class_array}{Array}} \& \mbox{\hyperlink{class_array_a326711b256f5d18b8b7a82c33bfa4fca}{operator=}} (const \mbox{\hyperlink{class_array}{Array}} \&)
+\item 
+bool \mbox{\hyperlink{class_array_ae22797e879a93defc81b7a422c5ebdf4}{operator==}} (const \mbox{\hyperlink{class_array}{Array}} \&) const
+\item 
+bool \mbox{\hyperlink{class_array_a8f9bf4df60147851da5d1d197c58305f}{operator!=}} (const \mbox{\hyperlink{class_array}{Array}} \&) const
+\item 
+int \& \mbox{\hyperlink{class_array_a8d65c656861d973d987d744da1bfe3ae}{operator\mbox{[}$\,$\mbox{]}}} (int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_array_aabdedbfd0e0010baddca16efc41125ec}{get\+Array\+Count}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+istream \& \mbox{\hyperlink{class_array_a533857db5ed0f67904824ff94d7617b9}{operator$>$$>$}} (istream \&, \mbox{\hyperlink{class_array}{Array}} \&)
+\item 
+ostream \& \mbox{\hyperlink{class_array_a43c7c4379f20a65d2d450c8f2f441ca9}{operator$<$$<$}} (ostream \&, const \mbox{\hyperlink{class_array}{Array}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_array_ad8df7b9c3fc7f4c8acb83106b2d4c2f5}\label{class_array_ad8df7b9c3fc7f4c8acb83106b2d4c2f5}} 
+\index{Array@{Array}!Array@{Array}}
+\index{Array@{Array}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Array\+::\+Array (\begin{DoxyParamCaption}\item[{int}]{array\+Size = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+Default constructor 
+\begin{DoxyParams}{Parameters}
+{\em array\+Size} & The number of elements the array will hold. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ptr points to an array of size array\+Size and all elements of the array have been initialized to zero. array\+Count is incremented. A negative array\+Size results in an array of size 10. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_array_a92547f11ba0b2f9d83dd478a38dd06e2}\label{class_array_a92547f11ba0b2f9d83dd478a38dd06e2}} 
+\index{Array@{Array}!Array@{Array}}
+\index{Array@{Array}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{Array()}{Array()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Array\+::\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_array}{Array}} \&}]{init }\end{DoxyParamCaption})}
+
+Copy constructor 
+\begin{DoxyParams}{Parameters}
+{\em init} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+init.\+ptr points to an array of size at least init.\+size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+init is copied into $\ast$this, array\+Count is incremented 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_array_abcabe567f41f7798d2f97babcc443c6f}\label{class_array_abcabe567f41f7798d2f97babcc443c6f}} 
+\index{Array@{Array}!````~Array@{$\sim$Array}}
+\index{````~Array@{$\sim$Array}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{$\sim$Array()}{~Array()}}
+{\footnotesize\ttfamily Array\+::$\sim$\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor \begin{DoxyPrecond}{Precondition}
+ptr points to memory on the heap 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\mbox{\hyperlink{class_array}{Array}} for ptr is deallocated, array\+Count is decremented 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_array_aabdedbfd0e0010baddca16efc41125ec}\label{class_array_aabdedbfd0e0010baddca16efc41125ec}} 
+\index{Array@{Array}!getArrayCount@{getArrayCount}}
+\index{getArrayCount@{getArrayCount}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{getArrayCount()}{getArrayCount()}}
+{\footnotesize\ttfamily int Array\+::get\+Array\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+description -\/ returns array\+Count \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns the number of arrays 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_array_af29bf627de157570d00c700773884e20}\label{class_array_af29bf627de157570d00c700773884e20}} 
+\index{Array@{Array}!getSize@{getSize}}
+\index{getSize@{getSize}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily int Array\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+get\+Size \begin{DoxyPrecond}{Precondition}
+None 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Returns the size of the array 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+The size of the array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_array_a8f9bf4df60147851da5d1d197c58305f}\label{class_array_a8f9bf4df60147851da5d1d197c58305f}} 
+\index{Array@{Array}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Array\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_array}{Array}} \&}]{right }\end{DoxyParamCaption}) const}
+
+Not equal operator -\/ description 
+\begin{DoxyParams}{Parameters}
+{\em right} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+ptr and right.\+ptr point to arrays with size at least size and size.\+right 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+false is returned if the arrays have the same size and elements true is returned otherwise 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_array_a326711b256f5d18b8b7a82c33bfa4fca}\label{class_array_a326711b256f5d18b8b7a82c33bfa4fca}} 
+\index{Array@{Array}!operator=@{operator=}}
+\index{operator=@{operator=}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_array}{Array}} \& Array\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_array}{Array}} \&}]{right }\end{DoxyParamCaption})}
+
+Copy assignment 
+\begin{DoxyParams}{Parameters}
+{\em right} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+right.\+ptr points to an array of size at least right.\+size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+$\ast$this is assigned the same array as right 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+??? 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_array_ae22797e879a93defc81b7a422c5ebdf4}\label{class_array_ae22797e879a93defc81b7a422c5ebdf4}} 
+\index{Array@{Array}!operator==@{operator==}}
+\index{operator==@{operator==}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Array\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_array}{Array}} \&}]{right }\end{DoxyParamCaption}) const}
+
+Determines if two arrays are equal. 
+\begin{DoxyParams}{Parameters}
+{\em right} & The right hand side array to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+ptr and right.\+ptr point to arrays with size at least size and right.\+size. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+True if the arrays have the same size and elements, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_array_a8d65c656861d973d987d744da1bfe3ae}\label{class_array_a8d65c656861d973d987d744da1bfe3ae}} 
+\index{Array@{Array}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily int \& Array\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{subscript }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{class_array}{Array}} access operator -\/ description. 
+\begin{DoxyParams}{Parameters}
+{\em subscript} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+0 $<$= subscript $<$ size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+returns the array value at position \char`\"{}subscript\char`\"{} 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_array_a43c7c4379f20a65d2d450c8f2f441ca9}\label{class_array_a43c7c4379f20a65d2d450c8f2f441ca9}} 
+\index{Array@{Array}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{output,  }\item[{const \mbox{\hyperlink{class_array}{Array}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Extraction operator. 
+\begin{DoxyParams}{Parameters}
+{\em istream} & something about the istream \\
+\hline
+{\em array} & something about array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+
+\end{DoxyPostcond}
+Extraction operator -\/ description 
+\begin{DoxyParams}{Parameters}
+{\em output} & \\
+\hline
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+a.\+ptr must point to an array with size at least a.\+size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The first a.\+size elements of a.\+ptr are sent to the output istream 10 per line with a trailing endl 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_array_a533857db5ed0f67904824ff94d7617b9}\label{class_array_a533857db5ed0f67904824ff94d7617b9}} 
+\index{Array@{Array}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Array@{Array}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{input,  }\item[{\mbox{\hyperlink{class_array}{Array}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Insertion operator. 
+\begin{DoxyParams}{Parameters}
+{\em istream} & something about the istream \\
+\hline
+{\em array} & something about array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+
+\end{DoxyPostcond}
+Insertion operator -\/ description 
+\begin{DoxyParams}{Parameters}
+{\em input} & \\
+\hline
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+a.\+ptr must point to an array with size at least a.\+size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The first a.\+size elements of a.\+ptr are filled with integers read from the input stream. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{array_8h}{array.\+h}}\item 
+\mbox{\hyperlink{array_8cpp}{array.\+cpp}}\end{DoxyCompactItemize}

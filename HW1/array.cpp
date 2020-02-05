@@ -1,3 +1,9 @@
+/**
+ * @file array.cpp
+ * @author cal
+ */
+
+
 //---------------------------------------------------------------------------
 // ARRAY.CPP
 // Member function definitions for class Array
@@ -22,16 +28,19 @@
 #include <cassert>
 
 // Initialize static data member at file scope
+
+/** The number of instantiated arrays.
+ */
 int Array::arrayCount = 0;
 
-
-//---------------------------------------------------------------------------
-// Default constructor 
-// Preconditions:   None
-// Postconditions:  ptr points to an array of size arraySize and all
-//        elements of the array have been initialized to zero.
-//        arrayCount is incremented.
-//        Negative input values result in the default size of 10
+/** Default constructor
+ * @param arraySize The number of elements the array will hold.
+ * @pre None
+ * @post ptr points to an array of size arraySize and all elements
+ * of the array have been initialized to zero.  arrayCount is 
+ * incremented.  A negative arraySize results in an array of size
+ * 10.
+ */
 Array::Array(int arraySize) {
    ++arrayCount;                            
    size = (arraySize > 0 ? arraySize : 10); 
@@ -42,11 +51,11 @@ Array::Array(int arraySize) {
       ptr[i] = 0;                          
 }
 
-
-//---------------------------------------------------------------------------
-// Copy constructor 
-// Preconditions:   init.ptr points to an array of size at least init.size
-// Postconditions:  init is copied into *this, arrayCount is incremented
+/** Copy constructor
+ * @param init
+ * @pre init.ptr points to an array of size at least init.size
+ * @post init is copied into *this, arrayCount is incremented
+ */
 Array::Array(const Array &init) {
    ++arrayCount;                        
    size = init.size;                    
@@ -57,28 +66,28 @@ Array::Array(const Array &init) {
       ptr[i] = init.ptr[i];          
 }
 
-//---------------------------------------------------------------------------
-// Destructor 
-// Preconditions:   ptr points to memory on the heap
-// Postconditions:  Array for ptr is deallocated, arrayCount is decremented
+/** Destructor
+ * @pre ptr points to memory on the heap
+ * @post Array for ptr is deallocated, arrayCount is decremented
+ */
 Array::~Array() {
    --arrayCount;  
    delete [] ptr;
 }
 
-
-//----------------------------- getSize -------------------------------------
-// getSize 
-// Get the size of the array
-// Preconditions:   None
-// Postconditions:  Returns the size of the array
+/** getSize
+ * @pre None
+ * @post Returns the size of the array
+ * @return The size of the array
+ */
 int Array::getSize() const { return size; }
 
-
-//---------------------------------------------------------------------------
-// operator=
-// Preconditions:   right.ptr points to an array of size at least right.size
-// Postconditions:  *this is assigned the same array as right
+/** Copy assignment
+ * @param right
+ * @pre right.ptr points to an array of size at least right.size
+ * @post *this is assigned the same array as right
+ * @return ???
+ */
 const Array& Array::operator=(const Array& right) {
    if (&right != this) {  
       delete [] ptr;     
@@ -93,20 +102,11 @@ const Array& Array::operator=(const Array& right) {
    return *this;  
 }
 
-
-//---------------------------------------------------------------------------
-// operator==  
-// Determine if two arrays are equal.
-// Preconditions:  ptr and right.ptr point to arrays with size at least
-//          size and right.size, respectively
-// Postconditions:  true is returned if the arrays have the same size and 
-//          elements false is return otherwise
-
-/** Equality operator
- * @param right
- * @pre
- * @post
- * @return
+/** Determines if two arrays are equal.
+ * @param right The right hand side array to be compared.
+ * @pre ptr and right.ptr point to arrays with size at least size and right.size.
+ * @post 
+ * @return True if the arrays have the same size and elements, false otherwise.
  */
 bool Array::operator==(const Array& right) const {
    if (size != right.size)
@@ -118,36 +118,21 @@ bool Array::operator==(const Array& right) const {
    return true;                       
 }
 
-
-//---------------------------------------------------------------------------
-// operator!=  
-// Determine if two arrays are not equal.
-// Preconditions:   ptr and right.ptr point to arrays with size at least
-//          size and right.size, respectively
-// Postconditions:  false is returned if the arrays have the same size and 
-//          elements true is return otherwise
-
 /** Not equal operator - description
  * @param right
- * @pre
- * @post
+ * @pre ptr and right.ptr point to arrays with size at least size and size.right
+ * @post false is returned if the arrays have the same size and elements true is 
+ * returned otherwise
  * @return
  */
 bool Array::operator!=(const Array& right) const {
    return !(*this == right);
 }
 
-
-//---------------------------------------------------------------------------
-// operator[]  
-// Overloaded subscript operator, terminates if subscript out of range error
-// Preconditions:   0 <= subscript < size
-// Postconditions:  Returns the array value at position "subscript"
-
 /** Array access operator - description.
  * @param subscript
- * @pre
- * @post
+ * @pre 0 <= subscript < size
+ * @post returns the array value at position "subscript"
  * @return
  */
 int& Array::operator[](int subscript) {
@@ -155,34 +140,19 @@ int& Array::operator[](int subscript) {
    return ptr[subscript];
 }
 
-
-//---------------------------------------------------------------------------
-// getArrayCount 
-// Return the number of Array objects instantiated
-// Preconditions:   None
-// Postconditions:  Returns the number of arrays
-
 /** description - returns arrayCount
  * @pre None
- * @post 
+ * @post returns the number of arrays
  * @return
  */
 int Array::getArrayCount() { return arrayCount; }
 
-
-
-//---------------------------------------------------------------------------
-// operator>>  
-// Overloaded input operator for class Array; inputs values for entire array.
-// Preconditions:   a.ptr must point to an array with size at least a.size
-// Postconditions:  The first a.size elements of a.ptr are filled with
-//           integers read from the input istream
-
 /** Insertion operator - description
  * @param input
  * @param a
- * @pre
- * @post
+ * @pre a.ptr must point to an array with size at least a.size
+ * @post The first a.size elements of a.ptr are filled with integers
+ * read from the input stream.
  * @return
  */
 istream& operator>>(istream &input, Array &a) {
@@ -191,19 +161,12 @@ istream& operator>>(istream &input, Array &a) {
    return input;
 }
 
-
-//---------------------------------------------------------------------------
-// operator<<  
-// Overloaded output operator for class Array
-// Preconditions:   a.ptr must point to an array with size at least a.size
-// Postconditions:  The first a.size elements of a.ptr are sent to the 
-//            output istream 10 per line with a trailing endl
-
 /** Extraction operator - description
- * @param
- * @param
- * @pre
- * @post
+ * @param output
+ * @param a
+ * @pre a.ptr must point to an array with size at least a.size
+ * @post The first a.size elements of a.ptr are sent to the
+ * output istream 10 per line with a trailing endl
  * @return
  */
 ostream& operator<<(ostream &output, const Array &a) {
